@@ -1,0 +1,22 @@
+{{define "content"}}
+<h1>{{.Title}}</h1>
+
+<form method="POST" action="{{.Action}}">
+    <p>
+        <label>Сумма, ₽<br>
+        <input type="number" name="amount" step="0.01" min="0.01" required value="{{if .Expense.Amount}}{{printf "%.2f" .Expense.Amount}}{{end}}"></label>
+    </p>
+    <p>
+        <label>Описание<br>
+        <input type="text" name="description" required value="{{.Expense.Description}}"></label>
+    </p>
+    <p>
+        <label>Дата<br>
+        <input type="date" name="date" required value="{{.Expense.Date}}"></label>
+    </p>
+    <p>
+        <button type="submit">{{.Button}}</button>
+        <a href="/">Отмена</a>
+    </p>
+</form>
+{{end}}
