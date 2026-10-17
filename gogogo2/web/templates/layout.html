@@ -1,0 +1,22 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Title}} - Учёт трат</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <b>Учёт личных трат</b> |
+        <a href="/">Список трат</a>
+        <a href="/expenses/new">Добавить трату</a>
+        <a href="/about">О проекте</a>
+    </header>
+
+    <main>
+        {{template "content" .}}
+    </main>
+</body>
+</html>
+{{end}}
