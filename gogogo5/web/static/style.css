@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+header a {
+    margin-left: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+th {
+    background: #eee;
+}
+
+.num {
+    text-align: right;
+}
+
+input[type=text], input[type=number], input[type=date] {
+    padding: 4px;
+    width: 250px;
+}
+
+form.inline {
+    display: inline;
+}
+
+.filter {
+    margin-bottom: 15px;
+}
+
+.filter label {
+    margin-right: 10px;
+}
+
+select {
+    padding: 4px;
+}
+
+.user {
+    float: right;
+}
+
+.error {
+    color: #b00020;
+}
+
+.notice {
+    color: #060;
+}
+
+input[type=email], input[type=password] {
+    padding: 4px;
+    width: 250px;
+}

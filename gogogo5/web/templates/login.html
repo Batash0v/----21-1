@@ -1,0 +1,21 @@
+{{define "content"}}
+<h1>Вход</h1>
+
+{{if .Notice}}<p class="notice">{{.Notice}}</p>{{end}}
+{{if .Error}}<p class="error">{{.Error}}</p>{{end}}
+
+<form method="POST" action="/login">
+    <p>
+        <label>Email<br>
+        <input type="email" name="email" required value="{{.FormEmail}}"></label>
+    </p>
+    <p>
+        <label>Пароль<br>
+        <input type="password" name="password" required></label>
+    </p>
+    <p>
+        <button type="submit">Войти</button>
+        <a href="/register">Регистрация</a>
+    </p>
+</form>
+{{end}}
