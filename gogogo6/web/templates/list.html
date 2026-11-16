@@ -1,0 +1,54 @@
+{{define "content"}}
+<h1>Список трат</h1>
+
+<p><a href="/expenses/new">Добавить трату</a></p>
+
+<form method="GET" action="/" class="filter">
+    <label>Категория
+        <select name="category">
+            <option value="0">Все категории</option>
+            {{range .Categories}}
+            <option value="{{.ID}}" {{if eq .ID $.Filter.CategoryID}}selected{{end}}>{{.Name}}</option>
+            {{end}}
+        </select>
+    </label>
+    <label>С
+        <input type="date" name="from" value="{{.Filter.DateFrom}}">
+    </label>
+    <label>По
+        <input type="date" name="to" value="{{.Filter.DateTo}}">
+    </label>
+    <button type="submit">Показать</button>
+    <a href="/">Сбросить</a>
+</form>
+
+{{if .Expenses}}
+<table>
+    <tr>
+        <th>Дата</th>
+        <th>Категория</th>
+        <th>Описание</th>
+        <th>Сумма, ₽</th>
+        <th>Действия</th>
+    </tr>
+    {{range .Expenses}}
+    <tr>
+        <td>{{.Date}}</td>
+        <td>{{.CategoryName}}</td>
+        <td>{{.Description}}</td>
+        <td class="num">{{printf "%.2f" .Amount}}</td>
+        <td>
+            <a href="/expenses/{{.ID}}/edit">Изменить</a>
+            <form method="POST" action="/expenses/{{.ID}}/delete" class="inline" onsubmit="return confirm('Удалить эту трату?');">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+    {{end}}
+</table>
+
+<p>Итого: <b>{{printf "%.2f" .Total}} ₽</b></p>
+{{else}}
+<p>Трат не найдено.</p>
+{{end}}
+{{end}}

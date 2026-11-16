@@ -1,0 +1,41 @@
+{{define "content"}}
+<h1>Статистика расходов</h1>
+
+<h2>По категориям</h2>
+
+<form id="category-form">
+    <label>С
+        <input type="date" id="from">
+    </label>
+    <label>По
+        <input type="date" id="to">
+    </label>
+    <button type="submit">Показать</button>
+</form>
+
+<p id="category-error" class="error"></p>
+<p id="category-total"></p>
+<p id="category-empty" hidden>За выбранный период трат нет.</p>
+<div class="chart-box chart-small">
+    <canvas id="category-chart"></canvas>
+</div>
+
+<h2>По месяцам</h2>
+
+<form id="month-form">
+    <label>Год
+        <input type="number" id="year" min="2000" max="2100" value="{{.Year}}">
+    </label>
+    <button type="submit">Показать</button>
+</form>
+
+<p id="month-error" class="error"></p>
+<p id="month-empty" hidden>В этом году трат нет.</p>
+<div class="chart-box">
+    <canvas id="month-chart"></canvas>
+</div>
+
+<!-- Chart.js подключается с CDN, сборка фронтенда не нужна -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="/static/stats.js"></script>
+{{end}}
